@@ -23,7 +23,14 @@ mongoose.set('useUnifiedTopology', true);
 
 // seed the database
 // seedDB();
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb+srv://tomi:FT24jvuuM4mQvFhp@cluster0-ainnu.mongodb.net/test?retryWrites=true&w=majority", {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+}).then(() => {
+	console.log("connected to mongoDB");
+}).catch(err => {
+	console.log("Error:", err.message);
+});
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
