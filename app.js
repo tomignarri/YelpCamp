@@ -21,9 +21,17 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-// seed the database
+// Seed the database.
 // seedDB();
-mongoose.connect("mongodb+srv://tomi:FT24jvuuM4mQvFhp@cluster0-ainnu.mongodb.net/test?retryWrites=true&w=majority", {
+
+//mongoose.connect("mongodb://localhost/yelpcamp");
+
+// Display DATABASEURL environment variable.
+// console.log(process.env.DATABASEURL);
+
+var url = process.env.DATABASEURL || "mongodb://localhost/yelpcamp;
+
+mongoose.connect(url, {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 }).then(() => {
