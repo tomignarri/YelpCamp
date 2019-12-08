@@ -29,7 +29,7 @@ mongoose.set('useUnifiedTopology', true);
 // Display DATABASEURL environment variable.
 // console.log(process.env.DATABASEURL);
 
-var url = process.env.DATABASEURL || "mongodb://localhost/yelpcamp;
+var url = process.env.DATABASEURL || "mongodb://localhost/yelpcamp";
 
 mongoose.connect(url, {
 	useNewUrlParser: true,
@@ -81,12 +81,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 // 		console.log(campground);
 // 	}
 // });
-
-
-
-
-
-
 
 
 
