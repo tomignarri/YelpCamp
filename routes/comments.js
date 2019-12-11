@@ -57,20 +57,20 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req, 
 	});
 });
 
-//COMMENT UPDATE
-router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
-	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
-		if(err){
-			res.redirect("back");
-		} else {
-			res.render("campgrounds/" + req.params.id);
-		}
-	});	   
+//comment update route
+router.put("/:comment_id", middleware.checkCommentOwnership, function (req, res){
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
+        if(err) {
+            res.redirect("back");
+        } else {
+            res.redirect("/campgrounds/" + req.params.id);
+        }
+    });
 });
 
 //COMMENT DESTROY ROUTE
 router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, res){
-	Comment.findByIdAndRemove(req.params.comment_id, function(){
+	Comment.findByIdAndRemove(req.params.comment_id, function(err){
 		if(err){
 			res.redirect("back");
 		} else {
