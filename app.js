@@ -24,8 +24,6 @@ mongoose.set('useUnifiedTopology', true);
 // Seed the database.
 // seedDB();
 
-//mongoose.connect("mongodb://localhost/yelpcamp");
-
 // Display DATABASEURL environment variable.
 // console.log(process.env.DATABASEURL);
 
@@ -69,8 +67,6 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-
-
 // Campground.create(
 //     {name: "Salmon Creek", image: "https://cdn2.howtostartanllc.com/images/business-ideas/business-idea-images/Campground.jpg", description: "this is a huge hill"},
 //  function(err, campground){
@@ -81,8 +77,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 // 		console.log(campground);
 // 	}
 // });
-
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
